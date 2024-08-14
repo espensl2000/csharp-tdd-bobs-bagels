@@ -23,17 +23,32 @@ namespace tdd_bobs_bagels.CSharp.Main
 
         public bool AddBagel(string bagel)
         {
-            throw new NotImplementedException();
+
+            if(this._bagels.Count() < this._capacity)
+            {
+                this._bagels.Add(bagel);
+                return true;
+            }
+            return false;
+
         }
 
         public bool RemoveBagel(string bagel)
         {
-            throw new NotImplementedException();
+
+            if (this._bagels.Contains(bagel))
+            {
+                this._bagels.Remove(bagel); 
+                return true;
+            }
+            return false;
+
         }
 
         public bool ExtendBasket(int capacity)
         {
-            throw new NotImplementedException();
+            this._capacity = capacity;
+            return true;
         }
 
     }
