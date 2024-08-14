@@ -31,3 +31,7 @@ I'd like to know if I try to remove an item that doesn't exist in my basket.
 | `Basket`      | RemoveBagel(Bagel bagel)    |  Removes bagel from basket			     | true         |
 |               |				    		  |  Given bagel does not exist in basket    | false        |
 | `Basket`      | ExtendBasket(int capacity)  |  Extends basket by 'capacity'			 | true         |
+|               |                             |  'capacity' is lower than item count     | false        |
+|               |                             |  'capacity' is same as current capacity  | false        |
+|               |                             |  'capacity' is a negative number or 0    | false        |
+

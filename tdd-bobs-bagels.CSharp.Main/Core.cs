@@ -47,8 +47,14 @@ namespace tdd_bobs_bagels.CSharp.Main
 
         public bool ExtendBasket(int capacity)
         {
-            this._capacity = capacity;
-            return true;
+            if (capacity < 1 || capacity < _bagels.Count() || capacity == this._capacity)
+            {
+                return false;
+            }
+            else {
+                this._capacity = capacity;
+                return true;
+            }
         }
 
     }

@@ -57,14 +57,27 @@ public class BasketTest
     {
         // Arrange
         Basket basket = new Basket();
-        int newCapacity = 6;
 
-        // Act & Assert
-        basket.ExtendBasket(newCapacity);
-        // Checks that the capacity is == newCapacity
-        Assert.That(basket.Capacity == 6);
+        // Checks that basket cannot be set to negative number or 0
+        Assert.That(basket.ExtendBasket(-10) == false);
+        Assert.That(basket.ExtendBasket(0) == false);
+
+        // Checks that basket cannot be set to capacity lower than bagel count
+        basket.AddBagel("Bagel1");
+        basket.AddBagel("Bagel2");
+        basket.AddBagel("Bagel3");
+        int bagelCount = basket.Bagels.Count();
+        Assert.That(basket.ExtendBasket(bagelCount - 1) == false);
+
+        // Checks that capacity cannot be set to the same as it was
+        Assert.That(basket.ExtendBasket(basket.Capacity) == false);
+
+        // Checks that new bagels can be added after extending capacity
+        basket.ExtendBasket(6);
+        Assert.That(basket.AddBagel("Bagel4") == true);
+
+        
 
     }
-
 
 }
